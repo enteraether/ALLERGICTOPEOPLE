@@ -1,0 +1,10 @@
+<%= form_for @recipe do |f|%>
+<%= f.label :name %>
+<%= f.text_field :name %><br><br>
+<%= f.label :user_id %>
+<%= f.fields_for :recipe_ingredients do |ff| %>
+<%= ff.collection_select :recipe_id,Recipe.all,:id,:name %>
+<% end  %>
+<br><%= f.submit %>
+
+<% end %>
